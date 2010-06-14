@@ -4,8 +4,8 @@ Datetime widget
 Features
 --------
 
-    - renders textarea with richtext css class and provides tinymce and
-      integration JS binding editor to refering textareas
+    - renders textarea with richtext css class and provides tinymce resources
+      You have to bind the editor via JS in you integration package.
 
 Load requirements.
 ::
