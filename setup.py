@@ -5,6 +5,7 @@ version = '1.0'
 shortdesc = 'yafowil.widget.richtext'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.txt')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()
+tests_require = ['interlude', 'lxml']
 
 setup(name='yafowil.widget.richtext',
       version=version,
@@ -31,10 +32,10 @@ setup(name='yafowil.widget.richtext',
           'setuptools',
           'yafowil',
       ],
-      extras_require = dict(),
-      tests_require=[
-          'interlude',
-      ],
+      tests_require=tests_require,
+      extras_require = dict(
+          test=tests_require,
+      ),
       test_suite="yafowil.widget.richtext.tests.test_suite",
       entry_points = """\
       """        
