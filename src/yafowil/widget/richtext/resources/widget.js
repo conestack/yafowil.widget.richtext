@@ -1,19 +1,32 @@
+/* 
+ * yafowil richtext widget
+ * 
+ * Requires: tinymce
+ * Optional: bdajax
+ */
+
 if (typeof(window['yafowil']) == "undefined") yafowil = {};
 
 (function($) {
 
     $(document).ready(function() {
+        // initial binding
         yafowil.richtext.binder();
-        bdajax.binders.richtext_binder = yafowil.richtext.binder;
+        
+        // add after ajax binding if bdajax present
+        if (typeof(window['bdajax']) != "undefined") {
+            $.extend(bdajax.binders, {
+                richtext_binder: yafowil.richtext.binder
+            });
+        }
     });
     
-    // yafowil richtext widget
     $.extend(yafowil, {
         
         richtext: {
             
             binder: function(context) {
-                $('textarea.richtext').tinymce({
+                $('textarea.richtext', context).tinymce({
                     // Location of TinyMCE script
                     script_url: '/tiny_mce/tiny_mce.js',
                     // General options
