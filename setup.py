@@ -5,7 +5,7 @@ version = '1.0'
 shortdesc = 'yafowil.widget.richtext'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.txt')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()
-tests_require = ['interlude', 'lxml']
+tests_require = ['yafowil[test]', 'yafowil.webob', 'gunicorn']
 
 setup(name='yafowil.widget.richtext',
       version=version,
