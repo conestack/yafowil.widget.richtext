@@ -5,6 +5,11 @@ from yafowil.common import (
     textarea_renderer,
 )
 
+factory.doc['widget']['richtext'] = \
+"""Add-on widget `yafowil.widget.richtext 
+<http://github.com/bluedynamics/yafowil.widget.richtext/`_ .
+"""
+
 factory.defaults['richtext.default'] = ''
 factory.defaults['richtext.wrap'] = None
 factory.defaults['richtext.cols'] = 80
