@@ -7,7 +7,7 @@ from yafowil.common import (
 
 factory.doc['widget']['richtext'] = \
 """Add-on widget `yafowil.widget.richtext 
-<http://github.com/bluedynamics/yafowil.widget.richtext/`_ .
+<http://github.com/bluedynamics/yafowil.widget.richtext/>`_ .
 """
 
 factory.defaults['richtext.default'] = ''
