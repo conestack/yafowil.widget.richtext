@@ -23,7 +23,7 @@ Render widget.
 
     >>> widget = factory('richtext', 'rt', props={'required': True})
     >>> widget()
-    u'<textarea class="richtext" cols="80" id="input-rt" name="rt" rows="25"></textarea>'
+    u'<textarea class="richtext" cols="80" id="input-rt" name="rt" required="required" rows="25"></textarea>'
     
 Widget extraction.
 ::
