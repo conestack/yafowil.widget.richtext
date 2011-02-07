@@ -1,9 +1,10 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '1.0'
+version = '0.9'
 shortdesc = 'yafowil.widget.richtext'
-longdesc = open(os.path.join(os.path.dirname(__file__), 'README.txt')).read()
+longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+longdesc += open(os.path.join(os.path.dirname(__file__), 'HISTORY.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()
 tests_require = ['yafowil[test]', 'yafowil.webob', 'gunicorn']
 
@@ -12,7 +13,6 @@ setup(name='yafowil.widget.richtext',
       description=shortdesc,
       long_description=longdesc,
       classifiers=[
-            'Development Status :: 3 - Alpha',
             'Environment :: Web Environment',
             'Operating System :: OS Independent',
             'Programming Language :: Python', 
