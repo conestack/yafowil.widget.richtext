@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import sys, os
 
 version = '0.9.2dev'
-shortdesc = 'yafowil.widget.richtext'
+shortdesc = 'Richtext Widget for YAFOWIL - Yet Another Form Widget Library (Python, Web)'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'HISTORY.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()
