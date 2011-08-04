@@ -1,14 +1,26 @@
-from yafowil.base import factory
+from yafowil.base import (
+    factory,
+    fetch_value,
+)
 from yafowil.common import (
     generic_extractor,
     generic_required_extractor,
     textarea_renderer,
 )
 
+
+def richtext_display_renderer(widget, data):
+    value = fetch_value(widget, data)
+    if value is None:
+        value = ''
+    return data.tag('div', value)
+
+
 factory.register(
     'richtext',
     extractors=[generic_extractor, generic_required_extractor],
-    edit_renderers=[textarea_renderer])
+    edit_renderers=[textarea_renderer],
+    display_renderers=[richtext_display_renderer])
 
 factory.doc['widget']['richtext'] = \
 """Add-on widget `yafowil.widget.richtext 

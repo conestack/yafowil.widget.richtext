@@ -49,3 +49,9 @@ Widget extraction. Returns markup from tinymce::
     
     >>> widget(data)
     u'<textarea class="richtext" cols="80" id="input-rt" name="rt" required="required" rows="25"><p>1</p></textarea>'
+
+Display renderer::
+
+    >>> widget = factory('richtext', 'rt', value='<p>foo</p>', mode='display')
+    >>> widget()
+    u'<div><p>foo</p></div>'
