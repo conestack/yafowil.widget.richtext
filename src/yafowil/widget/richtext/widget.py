@@ -11,7 +11,7 @@ from yafowil.common import (
 
 def richtext_display_renderer(widget, data):
     value = fetch_value(widget, data)
-    if value is None:
+    if not value:
         value = ''
     return data.tag('div', value)
 
