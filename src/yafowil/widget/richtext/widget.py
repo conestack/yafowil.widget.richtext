@@ -22,8 +22,8 @@ factory.register(
     edit_renderers=[textarea_renderer],
     display_renderers=[richtext_display_renderer])
 
-factory.doc['widget']['richtext'] = \
-"""Add-on widget `yafowil.widget.richtext 
+factory.doc['blueprint']['richtext'] = \
+"""Add-on blueprint `yafowil.widget.richtext 
 <http://github.com/bluedynamics/yafowil.widget.richtext/>`_ .
 """
 
