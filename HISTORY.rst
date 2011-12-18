@@ -2,6 +2,12 @@
 History
 =======
 
+1.1.1dev
+--------
+
+- add display mode css class
+  [rnix, 1011-12-18]
+
 1.1
 ---
 

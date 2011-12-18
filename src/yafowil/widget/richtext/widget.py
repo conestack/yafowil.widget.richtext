@@ -13,7 +13,7 @@ def richtext_display_renderer(widget, data):
     value = fetch_value(widget, data)
     if not value:
         value = ''
-    return data.tag('div', value)
+    return data.tag('div', value, **{'class': 'display-richtext'})
 
 
 factory.register(

@@ -54,8 +54,8 @@ Display renderer::
 
     >>> widget = factory('richtext', 'rt', value='<p>foo</p>', mode='display')
     >>> widget()
-    u'<div><p>foo</p></div>'
+    u'<div class="display-richtext"><p>foo</p></div>'
     
     >>> widget = factory('richtext', 'rt', mode='display')
     >>> widget()
-    u'<div></div>'
+    u'<div class="display-richtext"></div>'
