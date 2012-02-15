@@ -39,9 +39,11 @@ setup(name='yafowil.widget.richtext',
       ),
       test_suite="yafowil.widget.richtext.tests.test_suite",
       entry_points="""
-      # plone specific, ignore if not available
-      [z3c.autoinclude.plugin]
-      target = plone
-      """,      
+      [yafowil.plugin]
+      register = yafowil.widget.richtext:register
+      resourcedir = yafowil.widget.richtext:get_resource_dir
+      javascripts = yafowil.widget.richtext:get_js
+      stylesheets = yafowil.widget.richtext:get_css
+      """,
       )
 
