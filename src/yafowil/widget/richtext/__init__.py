@@ -9,11 +9,9 @@ def get_resource_dir():
 def get_js(thirdparty=True):
     js = ['widget.js']
     if thirdparty:
+        js.append('tinymce/jscripts/tiny_mce/tiny_mce.js')
         js.append('tinymce/jscripts/tiny_mce/jquery.tinymce.js')
     return js
 
 def get_css(thirdparty=True):
-    if thirdparty:
-        return []
-    return []
-    
+    return list()
