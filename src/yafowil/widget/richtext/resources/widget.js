@@ -27,7 +27,8 @@ if (typeof(window['yafowil']) == "undefined") yafowil = {};
             
             // tinymce options. extend or override as desired
             options: {
-                script_url: 'tinymce/jscripts/tiny_mce/tiny_mce.js',
+            	script_url: 'yafowil.widget.richtext.resources/tinymce/jscripts/tiny_mce/tiny_mce.js',
+                //script_url: 'tinymce/jscripts/tiny_mce/tiny_mce.js',
                 theme: "advanced",
                 plugins: "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",
                 theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,formatselect,|,pasteword,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo",
