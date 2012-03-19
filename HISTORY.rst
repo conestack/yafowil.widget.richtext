@@ -2,11 +2,17 @@
 History
 =======
 
-1.1.1dev
---------
+1.2
+---
+
+- fixed resources
+  [rnix, 2012-03-01]
+
+- added entry point base registration
+  [agitator, 2012-02-15]
 
 - add display mode css class
-  [rnix, 1011-12-18]
+  [rnix, 2011-12-18]
 
 1.1
 ---
