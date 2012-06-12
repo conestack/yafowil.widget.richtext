@@ -43,6 +43,7 @@ setup(name='yafowil.widget.richtext',
       register = yafowil.widget.richtext:register
       resourcedir = yafowil.widget.richtext:get_resource_dir
       javascripts = yafowil.widget.richtext:get_js
+      example = yafowil.widget.richtext.example:get_example
       """,
       )
 
