@@ -23,15 +23,3 @@ def register():
     import widget
     factory.register_theme('default', 'yafowil.widget.richtext',
                            resourcedir, js=js)
-
-
-###############################################################################
-# XXX: outdated below
-###############################################################################
-
-def get_resource_dir():
-    return resourcedir
-
-
-def get_js():
-    return js
