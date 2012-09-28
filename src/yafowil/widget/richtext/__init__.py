@@ -2,9 +2,7 @@ import os
 from yafowil.base import factory
 
 
-# XXX: use fanstatic
 resourcedir = os.path.join(os.path.dirname(__file__), 'resources')
-
 js = [{
     'group': 'richtext',
     'resource': 'tinymce/jscripts/tiny_mce/tiny_mce.js',
