@@ -30,11 +30,23 @@ factory.doc['blueprint']['richtext'] = \
 factory.defaults['richtext.default'] = ''
 
 factory.defaults['richtext.wrap'] = None
+factory.doc['props']['richtext.wrap'] = \
+"""Either ``soft``, ``hard``, ``virtual``, ``physical`` or  ``off``.
+"""
 
 factory.defaults['richtext.cols'] = 80
+factory.doc['props']['richtext.cols'] = \
+"""Number of characters.
+"""
 
 factory.defaults['richtext.rows'] = 25
+factory.doc['props']['richtext.rows'] = \
+"""Number of lines.
+"""
 
 factory.defaults['richtext.readonly'] = None
+factory.doc['props']['richtext.readonly'] = \
+"""Flag for readonly.
+"""
 
 factory.defaults['richtext.class'] = 'richtext'
