@@ -8,7 +8,7 @@ js = [{
     'resource': 'tinymce/jscripts/tiny_mce/tiny_mce.js',
     'order': 20,
 }, {
-    'group': 'yafowil.widget.richtext.dependencies',
+    'group': 'yafowil.widget.richtext.jquery',
     'resource': 'tinymce/jscripts/tiny_mce/jquery.tinymce.js',
     'order': 21,
 }, {
