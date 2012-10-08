@@ -2,7 +2,11 @@
 This is a **richtext widget** for for `YAFOWIL 
 <http://pypi.python.org/pypi/yafowil>`_ 
 
-It uses for now TinyMCE as wysiwig-editor.
+It uses for now `TinyMCE <http://www.tinymce.com/>`_ as wysiwig-editor.
+
+- `Documentation <http://docs.yafowil.info/yafowil/blueprints.html#richtext>`_
+- `DEMO - see it Live <http://demo.yafowil.info/++widget++yafowil.widget.richtext/index.html>`_
+
 
 Source Code
 ===========
