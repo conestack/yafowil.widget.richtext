@@ -4,7 +4,7 @@ This is a **richtext widget** for for `YAFOWIL
 
 It uses for now `TinyMCE <http://www.tinymce.com/>`_ as wysiwig-editor.
 
-- `Documentation <http://docs.yafowil.info/yafowil/blueprints.html#richtext>`_
+- `Documentation <http://docs.yafowil.info/en/latest/blueprints.html#richtext>`_
 - `DEMO - see it Live <http://demo.yafowil.info/++widget++yafowil.widget.richtext/index.html>`_
 
 
