@@ -2,6 +2,13 @@
 History
 =======
 
+1.3.1dev
+--------
+
+- check for plone context in JS in order to use different tinymce
+  initialization code.
+  [rnix, 2012-10-25]
+
 1.3
 ---
 
