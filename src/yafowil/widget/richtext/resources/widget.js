@@ -39,8 +39,18 @@ if (typeof(window['yafowil']) == "undefined") yafowil = {};
             },
             
             binder: function(context) {
-                $('textarea.richtext', context)
-                    .tinymce(yafowil.richtext.options);
+                var is_plone = typeof(window['InitializedTinyMCEInstances']);
+                if (is_plone != "undefined") {
+                    $('textarea.richtext', context).each(function() {
+                        var id = $(this).attr('id');
+                        var config = new TinyMCEConfig(id);
+                        delete InitializedTinyMCEInstances[id];
+                        config.init();
+                    });
+                } else {
+                    $('textarea.richtext', context)
+                        .tinymce(yafowil.richtext.options);
+                }
             }
         }
     });
