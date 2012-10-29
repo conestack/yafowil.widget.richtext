@@ -2,8 +2,8 @@
 History
 =======
 
-1.3.1dev
---------
+1.3.1
+-----
 
 - check for plone context in JS in order to use different tinymce
   initialization code.
