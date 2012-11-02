@@ -1,5 +1,6 @@
-Datetime widget
+Richtext widget
 ===============
+
 
 Features
 --------
