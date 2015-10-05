@@ -1,12 +1,8 @@
-from yafowil.base import (
-    factory,
-    fetch_value,
-)
-from yafowil.common import (
-    generic_extractor,
-    generic_required_extractor,
-    textarea_renderer,
-)
+from yafowil.base import factory
+from yafowil.base import fetch_value
+from yafowil.common import generic_extractor
+from yafowil.common import generic_required_extractor
+from yafowil.common import textarea_renderer
 
 
 def richtext_display_renderer(widget, data):
