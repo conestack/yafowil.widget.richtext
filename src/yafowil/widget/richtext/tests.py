@@ -1,30 +1,87 @@
-from interlude import interact
-from pprint import pprint
-from yafowil.tests import pxml
-import doctest
-import unittest
+from node.tests import NodeTestCase
+from node.utils import UNSET
+from yafowil.base import ExtractionError
+from yafowil.base import factory
+from yafowil.tests import fxml
+import yafowil.widget.richtext
+import yafowil.loader
 
 
-optionflags = doctest.NORMALIZE_WHITESPACE | \
-              doctest.ELLIPSIS | \
-              doctest.REPORT_ONLY_FIRST_FAILURE
+class TestRichtextWidget(NodeTestCase):
 
-TESTFILES = [
-    'widget.rst',
-]
+    def test_edit_renderer_no_preset_value(self):
+        # Render widget
+        widget = factory(
+            'richtext',
+            name='rt',
+            props={
+                'required': True
+            })
+        self.assertEqual(widget(), (
+            '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
+            'required="required" rows="25"></textarea>'
+        ))
 
+    def test_edit_renderer_preset_value(self):
+        widget = factory(
+            'richtext',
+            name='rt',
+            value='<p>1</p>',
+            props={
+                'required': True
+            })
+        self.assertEqual(widget(), (
+            '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
+            'required="required" rows="25"><p>1</p></textarea>'
+        ))
 
-def test_suite():
-    return unittest.TestSuite([
-        doctest.DocFileSuite(
-            file, 
-            optionflags=optionflags,
-            globs={'interact': interact,
-                   'pprint': pprint,
-                   'pxml': pxml},
-        ) for file in TESTFILES
-    ])
+    def test_display_renderer(self):
+        # Display renderer
+        widget = factory(
+            'richtext',
+            name='rt',
+            value='<p>foo</p>',
+            mode='display')
+        self.assertEqual(widget(),
+            '<div class="display-richtext"><p>foo</p></div>'
+        )
+
+        widget = factory(
+            'richtext',
+            name='rt',
+            mode='display')
+        self.assertEqual(widget(), '<div class="display-richtext"></div>')
+
+    def test_extraction(self):
+        # Widget extraction
+        widget = factory(
+            'richtext',
+            name='rt',
+            props={
+                'required': True
+            })
+
+        # Required extraction
+        request = {'rt': ''}
+        data = widget.extract(request)
+        # No input was given
+        self.assertEqual(
+            data.errors,
+            [ExtractionError('Mandatory field was empty')]
+        )
+        # Empty string in extracted
+        self.assertEqual(data.extracted, '')
+
+        # Widget extraction. Returns markup from tinymce
+        request = {'rt': '<p>1</p>'}
+        data = widget.extract(request)
+        self.assertEqual(data.errors, [])
+        self.assertEqual(data.extracted, '<p>1</p>')
+        self.assertEqual(widget(data), (
+            '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
+            'required="required" rows="25"><p>1</p></textarea>'
+        ))
 
 
 if __name__ == '__main__':
-    unittest.main(defaultTest='test_suite')                 #pragma NO COVER
+    unittest.main()                                          # pragma: no cover
