@@ -1,13 +1,17 @@
-from node.tests import NodeTestCase
 from node.utils import UNSET
 from yafowil.base import ExtractionError
 from yafowil.base import factory
+from yafowil.tests import YafowilTestCase
 from yafowil.tests import fxml
-import yafowil.widget.richtext
 import yafowil.loader
 
 
-class TestRichtextWidget(NodeTestCase):
+class TestRichtextWidget(YafowilTestCase):
+
+    def setUp(self):
+        super(TestRichtextWidget, self).setUp()
+        from yafowil.widget.richtext import widget
+        reload(widget)
 
     def test_edit_renderer_no_preset_value(self):
         # Render widget
