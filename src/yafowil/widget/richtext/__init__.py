@@ -21,6 +21,6 @@ js = [{
 
 @entry_point(order=10)
 def register():
-    import widget
+    from yafowil.widget.richtext import widget
     factory.register_theme('default', 'yafowil.widget.richtext',
                            resourcedir, js=js)
