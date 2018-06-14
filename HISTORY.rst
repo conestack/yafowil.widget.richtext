@@ -5,6 +5,10 @@ History
 1.5 (unreleased)
 ----------------
 
+- Add dedicated ``plone4`` and ``plone5`` widgets JS. TinyMCE handling is too
+  different to be done generic.
+  [rnix]
+
 - Python 3 compatibility.
   [rnix]
 

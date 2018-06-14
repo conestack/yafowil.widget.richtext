@@ -12,7 +12,7 @@ if (typeof(window['yafowil']) == "undefined") yafowil = {};
     $(document).ready(function() {
         // initial binding
         yafowil.richtext.binder();
-        
+
         // add after ajax binding if bdajax present
         if (typeof(window['bdajax']) != "undefined") {
             $.extend(bdajax.binders, {
@@ -20,11 +20,11 @@ if (typeof(window['yafowil']) == "undefined") yafowil = {};
             });
         }
     });
-    
+
     $.extend(yafowil, {
-        
+
         richtext: {
-            
+
             // tinymce options. extend or override as desired
             options: {
                 theme: "advanced",
@@ -37,20 +37,10 @@ if (typeof(window['yafowil']) == "undefined") yafowil = {};
                 theme_advanced_statusbar_location: "bottom",
                 theme_advanced_resizing: true
             },
-            
+
             binder: function(context) {
-                var is_plone = typeof(window['InitializedTinyMCEInstances']);
-                if (is_plone != "undefined") {
-                    $('textarea.richtext', context).each(function() {
-                        var id = $(this).attr('id');
-                        var config = new TinyMCEConfig(id);
-                        delete InitializedTinyMCEInstances[id];
-                        config.init();
-                    });
-                } else {
-                    $('textarea.richtext', context)
-                        .tinymce(yafowil.richtext.options);
-                }
+                $('textarea.richtext', context)
+                    .tinymce(yafowil.richtext.options);
             }
         }
     });
