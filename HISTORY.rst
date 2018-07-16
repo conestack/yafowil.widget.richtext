@@ -2,7 +2,7 @@
 History
 =======
 
-1.5 (unreleased)
+1.5 (2018-07-16)
 ----------------
 
 - Add dedicated ``plone4`` and ``plone5`` widgets JS. TinyMCE handling is too
