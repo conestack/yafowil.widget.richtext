@@ -5,7 +5,9 @@ History
 1.6 (unreleased)
 ----------------
 
-- No changes yet.
+- Use ``yafowil.utils.as_data_attrs`` instead of deprecated
+  ``yafowil.utils.generic_html5_attrs``.
+  [rnix]
 
 
 1.5 (2018-07-16)

@@ -3,9 +3,9 @@ from yafowil.base import fetch_value
 from yafowil.common import generic_extractor
 from yafowil.common import generic_required_extractor
 from yafowil.common import textarea_renderer
+from yafowil.utils import as_data_attrs
 from yafowil.utils import attr_value
 from yafowil.utils import cssid
-from yafowil.utils import generic_html5_attrs
 
 
 def richtext_display_renderer(widget, data):
@@ -31,7 +31,7 @@ def richtext_edit_renderer(widget, data):
         'class': attr_value('mimetypes_class', widget, data)
     }
     mimetypes_data = attr_value('mimetypes_data', widget, data)
-    select_attrs.update(generic_html5_attrs(mimetypes_data))
+    select_attrs.update(as_data_attrs(mimetypes_data))
     rendered += data.tag('select', *optiontags, **select_attrs)
     return rendered
 
