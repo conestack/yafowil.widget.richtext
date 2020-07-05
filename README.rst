@@ -1,4 +1,3 @@
-
 This is a **richtext widget** for for `YAFOWIL 
 <http://pypi.python.org/pypi/yafowil>`_ 
 

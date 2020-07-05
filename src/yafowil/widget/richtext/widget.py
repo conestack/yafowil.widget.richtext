@@ -19,7 +19,7 @@ def richtext_edit_renderer(widget, data):
     rendered = textarea_renderer(widget, data)
     optiontags = []
     mimetypes = attr_value('mimetypes', widget, data)
-    if not 'text/html' in mimetypes:
+    if 'text/html' not in mimetypes:
         raise Exception('"text/html" not contained in mimetypes')
     if len(mimetypes) == 1:
         return rendered
@@ -38,50 +38,54 @@ def richtext_edit_renderer(widget, data):
 
 factory.register(
     'richtext',
-    extractors=[generic_extractor, generic_required_extractor],
+    extractors=[
+        generic_extractor,
+        generic_required_extractor
+    ],
     edit_renderers=[richtext_edit_renderer],
-    display_renderers=[richtext_display_renderer])
+    display_renderers=[richtext_display_renderer]
+)
 
-factory.doc['blueprint']['richtext'] = \
-"""Add-on blueprint `yafowil.widget.richtext 
+factory.doc['blueprint']['richtext'] = """\
+Add-on blueprint `yafowil.widget.richtext
 <http://github.com/bluedynamics/yafowil.widget.richtext/>`_ .
 """
 
 factory.defaults['richtext.default'] = ''
 
 factory.defaults['richtext.wrap'] = None
-factory.doc['props']['richtext.wrap'] = \
-"""Either ``soft``, ``hard``, ``virtual``, ``physical`` or  ``off``.
+factory.doc['props']['richtext.wrap'] = """\
+Either ``soft``, ``hard``, ``virtual``, ``physical`` or  ``off``.
 """
 
 factory.defaults['richtext.cols'] = 80
-factory.doc['props']['richtext.cols'] = \
-"""Number of characters.
+factory.doc['props']['richtext.cols'] = """\
+Number of characters.
 """
 
 factory.defaults['richtext.rows'] = 25
-factory.doc['props']['richtext.rows'] = \
-"""Number of lines.
+factory.doc['props']['richtext.rows'] = """\
+Number of lines.
 """
 
 factory.defaults['richtext.readonly'] = None
-factory.doc['props']['richtext.readonly'] = \
-"""Flag for readonly.
+factory.doc['props']['richtext.readonly'] = """\
+Flag for readonly.
 """
 
 factory.defaults['richtext.mimetypes'] = ['text/html']
-factory.doc['props']['richtext.mimetypes'] = \
-"""List of mimetypes.
+factory.doc['props']['richtext.mimetypes'] = """\
+List of mimetypes.
 """
 
 factory.defaults['richtext.mimetypes_class'] = ''
-factory.doc['props']['richtext.mimetypes_class'] = \
-"""CSS class to be set on mimetypes selection.
+factory.doc['props']['richtext.mimetypes_class'] = """\
+CSS class to be set on mimetypes selection.
 """
 
 factory.defaults['richtext.mimetypes_data'] = {}
-factory.doc['props']['richtext.mimetypes_data'] = \
-"""Dict containing data attributes to render on mimetypes selection.
+factory.doc['props']['richtext.mimetypes_data'] = """\
+Dict containing data attributes to render on mimetypes selection.
 """
 
 factory.defaults['richtext.class'] = 'richtext'

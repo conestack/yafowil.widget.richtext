@@ -31,7 +31,7 @@ js_plone5 = [{
 
 @entry_point(order=10)
 def register():
-    from yafowil.widget.richtext import widget
+    from yafowil.widget.richtext import widget  # noqa
     factory.register_theme('default', 'yafowil.widget.richtext',
                            resourcedir, js=js)
     factory.register_theme('plone4', 'yafowil.widget.richtext',

@@ -14,6 +14,7 @@ Richtext widget using TinyMCE.
         'required': 'Text is required'})
 """
 
+
 def richtext():
     part = factory(u'fieldset', name='yafowilwidgetrichtext')
     part['richtext'] = factory('#field:richtext', props={
