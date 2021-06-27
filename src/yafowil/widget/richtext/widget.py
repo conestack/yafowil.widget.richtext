@@ -48,7 +48,7 @@ factory.register(
 
 factory.doc['blueprint']['richtext'] = """\
 Add-on blueprint `yafowil.widget.richtext
-<http://github.com/bluedynamics/yafowil.widget.richtext/>`_ .
+<http://github.com/conestack/yafowil.widget.richtext/>`_ .
 """
 
 factory.defaults['richtext.default'] = ''
