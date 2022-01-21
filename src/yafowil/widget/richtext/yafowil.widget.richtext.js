@@ -11,5 +11,5 @@
 	window.yafowil.richtext = exports;
 
 
-}());
+})();
 //# sourceMappingURL=yafowil.widget.richtext.js.map
