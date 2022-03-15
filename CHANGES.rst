@@ -1,7 +1,7 @@
 Changes
 =======
 
-1.6 (unreleased)
+2.0 (unreleased)
 ----------------
 
 - Use ``yafowil.utils.as_data_attrs`` instead of deprecated
