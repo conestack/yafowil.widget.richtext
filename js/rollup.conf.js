@@ -11,20 +11,20 @@ if (window.yafowil === undefined) {
 window.yafowil.richtext = exports;
 `;
 
-let versions = ['base', 'p4', 'p5'];
+let versions = ['', '_p4', '_p5'];
 
 export default args => {
     let conf = [];
 
     for (let ver of versions) {
         let conf_ver = {
-            input: `js/src/bundle_${ver}.js`,
+            input: `js/src/bundle${ver}.js`,
             plugins: [
                 cleanup()
             ],
             output: [{
-                name: `yafowil_richtext_${ver}`,
-                file: `${out_dir}/widget_${ver}.js`,
+                name: `yafowil_richtext${ver}`,
+                file: `${out_dir}/widget${ver}.js`,
                 format: 'iife',
                 outro: outro,
                 globals: {
@@ -38,8 +38,8 @@ export default args => {
         };
         if (args.configDebug !== true) {
             conf_ver.output.push({
-                name: `yafowil_richtext_${ver}`,
-                file: `${out_dir}/widget_${ver}.min.js`,
+                name: `yafowil_richtext${ver}`,
+                file: `${out_dir}/widget${ver}.min.js`,
                 format: 'iife',
                 plugins: [
                     terser()

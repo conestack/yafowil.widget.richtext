@@ -1,8 +1,8 @@
 import $ from 'jquery';
 
-import {RichtextWidget} from './widget_base.js';
+import {RichtextWidget} from './widget.js';
 
-export * from './widget_base.js';
+export * from './widget.js';
 
 $(function() {
     if (window.ts !== undefined) {
