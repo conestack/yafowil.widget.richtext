@@ -1,4 +1,4 @@
-var yafowil_richtext_p4 = (function (exports, $) {
+var yafowil_richtext_base = (function (exports, $) {
     'use strict';
 
     let options = {
@@ -12,7 +12,6 @@ var yafowil_richtext_p4 = (function (exports, $) {
         theme_advanced_statusbar_location: "bottom",
         theme_advanced_resizing: true
     };
-
     class RichtextWidget {
         static initialize(context) {
             $('textarea.richtext', context).each(function() {
@@ -22,10 +21,7 @@ var yafowil_richtext_p4 = (function (exports, $) {
         constructor(elem, options) {
             this.elem = elem;
             this.options = options;
-            this.id = this.elem.attr('id');
-            this.config = new TinyMCEConfig(id);
-            delete InitializedTinyMCEInstances[id];
-            this.config.init();
+            this.elem.tinymce(this.options);
         }
     }
 
@@ -38,6 +34,7 @@ var yafowil_richtext_p4 = (function (exports, $) {
     });
 
     exports.RichtextWidget = RichtextWidget;
+    exports.options = options;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

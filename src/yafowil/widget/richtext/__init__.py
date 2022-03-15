@@ -14,7 +14,7 @@ js = [{
     'order': 21,
 }, {
     'group': 'yafowil.widget.richtext.common',
-    'resource': 'widget.js',
+    'resource': 'widget_base.js',
     'order': 22,
 }]
 js_plone4 = [{
