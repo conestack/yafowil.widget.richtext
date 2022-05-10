@@ -2,6 +2,8 @@ name: Test richtext
 
 on:
   push:
+    paths:
+    - '**.py'
 
 jobs:
   test:
