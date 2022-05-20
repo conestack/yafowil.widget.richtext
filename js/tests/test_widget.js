@@ -12,7 +12,7 @@ QUnit.test('test', assert => {
     });
 
     RichtextWidget.initialize();
-    let wid = el.data('richtext');
+    let wid = el.data('yafowil-richtext');
     assert.ok(wid);
 
     // remove tinymce from jQuery namespace

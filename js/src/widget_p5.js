@@ -9,7 +9,23 @@ export class RichtextWidget {
     }
 
     constructor(elem) {
+        elem.data('yafowil-richtext', this);
         this.elem = elem;
-        console.log('initialize tiny mce in plone 5 here');
+        mockup_require(['mockup-patterns-tinymce'], function(tinymce) {
+            $.ajax('@@yafowil.tinymce.options', {
+                dataType: 'json',
+                success: function(data, status, request) {
+                    new tinymce(elem, data);
+                },
+                error: function(request, status, error) {
+                    console.log(
+                        'Failed to fetch TinyMCE Options. ' +
+                        'Initialize with default options'
+                    );
+                    new tinymce(elem, {});
+                }
+            });
+            new tinymce(elem, {});
+        });
     }
 }

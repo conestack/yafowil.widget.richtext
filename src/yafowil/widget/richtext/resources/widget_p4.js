@@ -8,6 +8,7 @@ var yafowil_richtext_p4 = (function (exports, $) {
             });
         }
         constructor(elem) {
+            elem.data('yafowil-richtext', this);
             this.elem = elem;
             this.id = this.elem.attr('id');
             this.config = new TinyMCEConfig(id);

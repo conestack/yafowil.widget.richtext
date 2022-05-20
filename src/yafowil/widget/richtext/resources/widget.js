@@ -19,6 +19,7 @@ var yafowil_richtext = (function (exports, $) {
             });
         }
         constructor(elem, options) {
+            elem.data('yafowil-richtext', this);
             this.elem = elem;
             this.options = options;
             this.elem.tinymce(this.options);

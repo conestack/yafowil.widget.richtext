@@ -22,7 +22,7 @@ export class RichtextWidget {
     }
 
     constructor(elem, options) {
-        elem.data('richtext', this);
+        elem.data('yafowil-richtext', this);
         this.elem = elem;
         this.options = options;
         this.elem.tinymce(this.options);
