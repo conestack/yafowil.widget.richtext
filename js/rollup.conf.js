@@ -23,7 +23,7 @@ export default args => {
                 cleanup()
             ],
             output: [{
-                name: `yafowil_richtext${ver}`,
+                name: 'yafowil_richtext',
                 file: `${out_dir}/widget${ver}.js`,
                 format: 'iife',
                 outro: outro,
@@ -38,7 +38,7 @@ export default args => {
         };
         if (args.configDebug !== true) {
             conf_ver.output.push({
-                name: `yafowil_richtext${ver}`,
+                name: 'yafowil_richtext',
                 file: `${out_dir}/widget${ver}.min.js`,
                 format: 'iife',
                 plugins: [
