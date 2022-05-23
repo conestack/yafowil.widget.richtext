@@ -1,4 +1,4 @@
-var yafowil_richtext_p5 = (function (exports, $) {
+var yafowil_richtext = (function (exports, $) {
     'use strict';
 
     class RichtextWidget {
@@ -32,6 +32,8 @@ var yafowil_richtext_p5 = (function (exports, $) {
     $(function() {
         if (window.ts !== undefined) {
             ts.ajax.register(RichtextWidget.initialize, true);
+        } else if (window.bdajax !== undefined) {
+            bdajax.register(RichtextWidget.initialize, true);
         } else {
             RichtextWidget.initialize();
         }
@@ -42,10 +44,7 @@ var yafowil_richtext_p5 = (function (exports, $) {
     Object.defineProperty(exports, '__esModule', { value: true });
 
 
-    if (window.yafowil === undefined) {
-        window.yafowil = {};
-    }
-
+    window.yafowil = window.yafowil || {};
     window.yafowil.richtext = exports;
 
 
