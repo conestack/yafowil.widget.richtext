@@ -13,7 +13,10 @@ resources_dir = os.path.join(os.path.dirname(__file__), 'resources')
 
 # webresource ################################################################
 
-default_scripts = wr.ResourceGroup(name='yafowil-richtext-scripts')
+default_scripts = wr.ResourceGroup(
+    name='yafowil-richtext-scripts',
+    path='yafowil.widget.richtext'
+)
 default_scripts.add(wr.ScriptResource(
     name='tinymce-js',
     directory=os.path.join(resources_dir, 'tinymce', 'jscripts', 'tiny_mce'),
@@ -56,7 +59,10 @@ default_js = [{
 
 # webresource ################################################################
 
-plone4_scripts = wr.ResourceGroup(name='yafowil-richtext-scripts')
+plone4_scripts = wr.ResourceGroup(
+    name='yafowil-richtext-scripts',
+    path='yafowil.widget.richtext'
+)
 plone4_scripts.add(wr.ScriptResource(
     name='yafowil-richtext-js',
     directory=resources_dir,
@@ -79,7 +85,10 @@ js_plone4 = [{
 
 # webresource ################################################################
 
-plone5_scripts = wr.ResourceGroup(name='yafowil-richtext-scripts')
+plone5_scripts = wr.ResourceGroup(
+    name='yafowil-richtext-scripts',
+    path='yafowil.widget.richtext'
+)
 plone5_scripts.add(wr.ScriptResource(
     name='yafowil-richtext-js',
     directory=resources_dir,
