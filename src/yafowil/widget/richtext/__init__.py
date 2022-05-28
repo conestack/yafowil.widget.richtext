@@ -13,25 +13,27 @@ resources_dir = os.path.join(os.path.dirname(__file__), 'resources')
 
 # webresource ################################################################
 
-default_scripts = wr.ResourceGroup(
-    name='yafowil-richtext-scripts',
-    path='yafowil.widget.richtext'
+default_resources = wr.ResourceGroup(
+    name='yafowil-richtext-resources',
+    directory=resources_dir,
+    path='yafowil-richtext'
 )
-default_scripts.add(wr.ScriptResource(
+default_resources.add(wr.ScriptResource(
     name='tinymce-js',
     directory=os.path.join(resources_dir, 'tinymce', 'jscripts', 'tiny_mce'),
+    path='yafowil-richtext/tinymce/jscripts/tiny_mce',
     resource='tiny_mce.js',
 ))
-default_scripts.add(wr.ScriptResource(
+default_resources.add(wr.ScriptResource(
     name='tinymce-jquery-js',
     depends=['jquery-js', 'tinymce-js'],
     directory=os.path.join(resources_dir, 'tinymce', 'jscripts', 'tiny_mce'),
+    path='yafowil-richtext/tinymce/jscripts/tiny_mce',
     resource='jquery.tiny_mce.js',
 ))
-default_scripts.add(wr.ScriptResource(
+default_resources.add(wr.ScriptResource(
     name='yafowil-richtext-js',
     depends='tinymce-jquery-js',
-    directory=resources_dir,
     resource='widget.js',
     compressed='widget.min.js'
 ))
@@ -59,13 +61,13 @@ default_js = [{
 
 # webresource ################################################################
 
-plone4_scripts = wr.ResourceGroup(
-    name='yafowil-richtext-scripts',
-    path='yafowil.widget.richtext'
-)
-plone4_scripts.add(wr.ScriptResource(
-    name='yafowil-richtext-js',
+plone4_resources = wr.ResourceGroup(
+    name='yafowil-richtext-resources',
     directory=resources_dir,
+    path='yafowil-richtext'
+)
+plone4_resources.add(wr.ScriptResource(
+    name='yafowil-richtext-js',
     resource='widget_p4.js',
     compressed='widget_p4.min.js'
 ))
@@ -85,13 +87,13 @@ js_plone4 = [{
 
 # webresource ################################################################
 
-plone5_scripts = wr.ResourceGroup(
-    name='yafowil-richtext-scripts',
-    path='yafowil.widget.richtext'
-)
-plone5_scripts.add(wr.ScriptResource(
-    name='yafowil-richtext-js',
+plone5_resources = wr.ResourceGroup(
+    name='yafowil-richtext-resources',
     directory=resources_dir,
+    path='yafowil-richtext'
+)
+plone5_resources.add(wr.ScriptResource(
+    name='yafowil-richtext-js',
     resource='widget_p5.js',
     compressed='widget_p5.min.js'
 ))
@@ -113,26 +115,16 @@ js_plone5 = [{
 def register():
     from yafowil.widget.richtext import widget  # noqa
 
+    widget_name = 'yafowil.widget.richtext'
+
     # Default
-    factory.register_theme(
-        'default', 'yafowil.widget.richtext', resources_dir, js=default_js
-    )
-    factory.register_scripts(
-        'default', 'yafowil.widget.richtext', default_scripts
-    )
+    factory.register_theme('default', widget_name, resources_dir, js=default_js)
+    factory.register_resources('default', widget_name, default_resources)
 
     # Plone 4
-    factory.register_theme(
-        'plone4', 'yafowil.widget.richtext', resources_dir, js=js_plone4
-    )
-    factory.register_scripts(
-        'default', 'yafowil.widget.richtext', plone4_scripts
-    )
+    factory.register_theme('plone4', widget_name, resources_dir, js=js_plone4)
+    factory.register_resources('default', widget_name, plone4_resources)
 
     # Plone 5
-    factory.register_theme(
-        'plone5', 'yafowil.widget.richtext', resources_dir, js=js_plone5
-    )
-    factory.register_scripts(
-        'default', 'yafowil.widget.richtext', plone5_scripts
-    )
+    factory.register_theme('plone5', widget_name, resources_dir, js=js_plone5)
+    factory.register_resources('default', widget_name, plone5_resources)
