@@ -22,3 +22,5 @@ Contributors
 - Robert Niederrreiter
 
 - Georg Bernhard
+
+- Lena Daxenbichler
