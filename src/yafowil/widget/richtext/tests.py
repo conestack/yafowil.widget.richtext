@@ -19,7 +19,8 @@ class TestRichtextWidget(YafowilTestCase):
     def setUp(self):
         super(TestRichtextWidget, self).setUp()
         from yafowil.widget import richtext
-        reload(richtext.widget)
+        from yafowil.widget.richtext import widget
+        reload(widget)
         richtext.register()
 
     def test_edit_renderer_no_preset_value(self):
