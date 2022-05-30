@@ -101,6 +101,7 @@ class TestRichtextWidget(YafowilTestCase):
         factory.theme = 'default'
         resources = factory.get_resources('yafowil.widget.richtext')
         self.assertTrue(resources.directory.endswith(np('/richtext/resources')))
+        self.assertEqual(resources.name, 'yafowil.widget.richtext')
         self.assertEqual(resources.path, 'yafowil-richtext')
 
         scripts = resources.scripts
@@ -134,6 +135,7 @@ class TestRichtextWidget(YafowilTestCase):
         factory.theme = 'plone4'
         resources = factory.get_resources('yafowil.widget.richtext')
         self.assertTrue(resources.directory.endswith(np('/richtext/resources')))
+        self.assertEqual(resources.name, 'yafowil.widget.richtext')
         self.assertEqual(resources.path, 'yafowil-richtext')
 
         scripts = resources.scripts
@@ -147,6 +149,7 @@ class TestRichtextWidget(YafowilTestCase):
         factory.theme = 'plone5'
         resources = factory.get_resources('yafowil.widget.richtext')
         self.assertTrue(resources.directory.endswith(np('/richtext/resources')))
+        self.assertEqual(resources.name, 'yafowil.widget.richtext')
         self.assertEqual(resources.path, 'yafowil-richtext')
 
         scripts = resources.scripts

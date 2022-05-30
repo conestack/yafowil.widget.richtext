@@ -14,7 +14,7 @@ resources_dir = os.path.join(os.path.dirname(__file__), 'resources')
 # webresource ################################################################
 
 default_resources = wr.ResourceGroup(
-    name='yafowil-richtext-resources',
+    name='yafowil.widget.richtext',
     directory=resources_dir,
     path='yafowil-richtext'
 )
@@ -62,7 +62,7 @@ default_js = [{
 # webresource ################################################################
 
 plone4_resources = wr.ResourceGroup(
-    name='yafowil-richtext-resources',
+    name='yafowil.widget.richtext',
     directory=resources_dir,
     path='yafowil-richtext'
 )
@@ -88,7 +88,7 @@ js_plone4 = [{
 # webresource ################################################################
 
 plone5_resources = wr.ResourceGroup(
-    name='yafowil-richtext-resources',
+    name='yafowil.widget.richtext',
     directory=resources_dir,
     path='yafowil-richtext'
 )
