@@ -29,7 +29,7 @@ default_resources.add(wr.ScriptResource(
     depends=['jquery-js', 'tinymce-js'],
     directory=os.path.join(resources_dir, 'tinymce', 'jscripts', 'tiny_mce'),
     path='yafowil-richtext/tinymce/jscripts/tiny_mce',
-    resource='jquery.tiny_mce.js',
+    resource='jquery.tinymce.js',
 ))
 default_resources.add(wr.ScriptResource(
     name='yafowil-richtext-js',
@@ -123,8 +123,8 @@ def register():
 
     # Plone 4
     factory.register_theme('plone4', widget_name, resources_dir, js=js_plone4)
-    factory.register_resources('default', widget_name, plone4_resources)
+    factory.register_resources('plone4', widget_name, plone4_resources)
 
     # Plone 5
     factory.register_theme('plone5', widget_name, resources_dir, js=js_plone5)
-    factory.register_resources('default', widget_name, plone5_resources)
+    factory.register_resources('plone5', widget_name, plone5_resources)
