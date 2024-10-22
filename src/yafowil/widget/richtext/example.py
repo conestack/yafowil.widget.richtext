@@ -18,15 +18,7 @@ Richtext widget using TinyMCE.
 DOC_RICHTEXT_DEPRECATION = """
 .. raw:: html
 
-    <div class="alert alert-info">
-        <i class="bi bi-info-circle-fill"></i>
-        This widget has a newer version available:
-        <a class="link-offset-3"
-           href="../++widget++yafowil.widget.tiptap/index.html">
-            yafowil.widget.tiptap
-        </a>
-    </div>
-    <div class="alert alert-warning">
+    <div class="alert alert-danger">
         <i class="bi bi-exclamation-triangle-fill"></i>
         <strong>Deprecation Notice:</strong>
         yafowil.widget.richtext is 
@@ -34,6 +26,12 @@ DOC_RICHTEXT_DEPRECATION = """
             deprecated
         </strong>
         and will no longer receive support or further development.
+        Please use 
+        <a class="link-offset-3"
+           href="../++widget++yafowil.widget.tiptap/index.html">
+            yafowil.widget.tiptap
+        </a>
+        instead.
     </div>
 """
 
