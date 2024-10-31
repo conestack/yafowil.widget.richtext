@@ -1,4 +1,5 @@
 import { RichtextWidget } from "../src/widget";
+import $ from 'jquery';
 
 QUnit.test('test', assert => {
     let el = $('<textarea class="richtext" />').appendTo('body');
