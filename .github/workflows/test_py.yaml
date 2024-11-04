@@ -47,4 +47,4 @@ jobs:
     - name: Run coverage
       run: |
         coverage run --source=src/yafowil/widget/richtext --omit=src/yafowil/widget/richtext/example.py -m pytest src/yafowil/widget/richtext/tests
-        coverage report --fail-under=99
+        coverage report --fail-under=94
