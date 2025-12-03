@@ -7,6 +7,13 @@ Changes
 - Rewrite JavaScript using ES6.
   [lenadax]
 
+
+1.6 (2025-11-03)
+----------------
+
+- Pin upper versions of dependencies.
+  [lenadax]
+
 - Use ``yafowil.utils.as_data_attrs`` instead of deprecated
   ``yafowil.utils.generic_html5_attrs``.
   [rnix]
