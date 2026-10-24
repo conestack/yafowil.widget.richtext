@@ -2,7 +2,7 @@ from yafowil.base import factory
 from yafowil.base import fetch_value
 from yafowil.common import generic_extractor
 from yafowil.common import generic_required_extractor
-from yafowil.common import textarea_renderer
+from yafowil.textarea import textarea_renderer
 from yafowil.utils import as_data_attrs
 from yafowil.utils import attr_value
 from yafowil.utils import cssid

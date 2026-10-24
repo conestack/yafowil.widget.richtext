@@ -4,6 +4,10 @@ Changes
 2.0.1 (unreleased)
 ------------------
 
+- Import ``textarea_renderer`` from ``yafowil.textarea``, it is deprecated in
+  ``yafowil.common``.
+  [rnix]
+
 - Modernise the code ruff flags as outdated: ``u''`` prefixes and ``.format()``
   over f-strings. Behaviour unchanged. ``super(Class, self)`` is kept, see
   ``cone.app``.
