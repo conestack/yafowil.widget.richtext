@@ -10,53 +10,42 @@ def np(path):
 
 
 class TestRichtextWidget(YafowilTestCase):
-
     def setUp(self):
         super(TestRichtextWidget, self).setUp()
         from yafowil.widget import richtext
         from yafowil.widget.richtext import widget
+
         reload(widget)
         richtext.register()
 
     def test_edit_renderer_no_preset_value(self):
         # Render widget
-        widget = factory(
-            'richtext',
-            name='rt',
-            props={
-                'required': True
-            })
-        self.assertEqual(widget(), (
-            '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
-            'required="required" rows="25"></textarea>'
-        ))
+        widget = factory('richtext', name='rt', props={'required': True})
+        self.assertEqual(
+            widget(),
+            (
+                '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
+                'required="required" rows="25"></textarea>'
+            ),
+        )
 
     def test_edit_renderer_preset_value(self):
         widget = factory(
-            'richtext',
-            name='rt',
-            value='<p>1</p>',
-            props={
-                'required': True
-            })
-        self.assertEqual(widget(), (
-            '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
-            'required="required" rows="25"><p>1</p></textarea>'
-        ))
+            'richtext', name='rt', value='<p>1</p>', props={'required': True}
+        )
+        self.assertEqual(
+            widget(),
+            (
+                '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
+                'required="required" rows="25"><p>1</p></textarea>'
+            ),
+        )
 
     def test_edit_renderer_requires_html_mimetype(self):
-        widget = factory(
-            'richtext',
-            name='rt',
-            props={
-                'mimetypes': ['text/plain']
-            })
+        widget = factory('richtext', name='rt', props={'mimetypes': ['text/plain']})
         with self.assertRaises(Exception) as arc:
             widget()
-        self.assertEqual(
-            str(arc.exception),
-            '"text/html" not contained in mimetypes'
-        )
+        self.assertEqual(str(arc.exception), '"text/html" not contained in mimetypes')
 
     def test_edit_renderer_mimetypes(self):
         widget = factory(
@@ -65,53 +54,39 @@ class TestRichtextWidget(YafowilTestCase):
             props={
                 'mimetypes': ['text/html', 'text/plain'],
                 'mimetypes_class': 'mimetypes',
-                'mimetypes_data': {'foo': 'bar'}
-            })
-        self.assertEqual(widget(), (
-            '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
-            'rows="25"></textarea>'
-            '<select class="mimetypes" data-foo=\'bar\' '
-            'id="input.mimetype-rt" name="rt.mimetype">'
-            '<option>text/html</option>'
-            '<option>text/plain</option>'
-            '</select>'
-        ))
+                'mimetypes_data': {'foo': 'bar'},
+            },
+        )
+        self.assertEqual(
+            widget(),
+            (
+                '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
+                'rows="25"></textarea>'
+                '<select class="mimetypes" data-foo=\'bar\' '
+                'id="input.mimetype-rt" name="rt.mimetype">'
+                '<option>text/html</option>'
+                '<option>text/plain</option>'
+                '</select>'
+            ),
+        )
 
     def test_display_renderer(self):
         # Display renderer
-        widget = factory(
-            'richtext',
-            name='rt',
-            value='<p>foo</p>',
-            mode='display')
-        self.assertEqual(
-            widget(),
-            '<div class="display-richtext"><p>foo</p></div>'
-        )
+        widget = factory('richtext', name='rt', value='<p>foo</p>', mode='display')
+        self.assertEqual(widget(), '<div class="display-richtext"><p>foo</p></div>')
 
-        widget = factory(
-            'richtext',
-            name='rt',
-            mode='display')
+        widget = factory('richtext', name='rt', mode='display')
         self.assertEqual(widget(), '<div class="display-richtext"></div>')
 
     def test_extraction(self):
         # Widget extraction
-        widget = factory(
-            'richtext',
-            name='rt',
-            props={
-                'required': True
-            })
+        widget = factory('richtext', name='rt', props={'required': True})
 
         # Required extraction
         request = {'rt': ''}
         data = widget.extract(request)
         # No input was given
-        self.assertEqual(
-            data.errors,
-            [ExtractionError('Mandatory field was empty')]
-        )
+        self.assertEqual(data.errors, [ExtractionError('Mandatory field was empty')])
         # Empty string in extracted
         self.assertEqual(data.extracted, '')
 
@@ -120,10 +95,13 @@ class TestRichtextWidget(YafowilTestCase):
         data = widget.extract(request)
         self.assertEqual(data.errors, [])
         self.assertEqual(data.extracted, '<p>1</p>')
-        self.assertEqual(widget(data), (
-            '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
-            'required="required" rows="25"><p>1</p></textarea>'
-        ))
+        self.assertEqual(
+            widget(data),
+            (
+                '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
+                'required="required" rows="25"><p>1</p></textarea>'
+            ),
+        )
 
     def test_resources(self):
         factory.theme = 'default'
@@ -135,23 +113,21 @@ class TestRichtextWidget(YafowilTestCase):
         scripts = resources.scripts
         self.assertEqual(len(scripts), 3)
 
-        self.assertTrue(scripts[0].directory.endswith(
-            np('/richtext/resources/tinymce/jscripts/tiny_mce'))
+        self.assertTrue(
+            scripts[0].directory.endswith(
+                np('/richtext/resources/tinymce/jscripts/tiny_mce')
+            )
         )
-        self.assertEqual(
-            scripts[0].path,
-            'yafowil-richtext/tinymce/jscripts/tiny_mce'
-        )
+        self.assertEqual(scripts[0].path, 'yafowil-richtext/tinymce/jscripts/tiny_mce')
         self.assertEqual(scripts[0].file_name, 'tiny_mce.js')
         self.assertTrue(os.path.exists(scripts[0].file_path))
 
-        self.assertTrue(scripts[1].directory.endswith(
-            np('/richtext/resources/tinymce/jscripts/tiny_mce'))
+        self.assertTrue(
+            scripts[1].directory.endswith(
+                np('/richtext/resources/tinymce/jscripts/tiny_mce')
+            )
         )
-        self.assertEqual(
-            scripts[1].path,
-            'yafowil-richtext/tinymce/jscripts/tiny_mce'
-        )
+        self.assertEqual(scripts[1].path, 'yafowil-richtext/tinymce/jscripts/tiny_mce')
         self.assertEqual(scripts[1].file_name, 'jquery.tinymce.js')
         self.assertTrue(os.path.exists(scripts[1].file_path))
 

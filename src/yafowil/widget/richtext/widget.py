@@ -26,9 +26,9 @@ def richtext_edit_renderer(widget, data):
     for mimetype in mimetypes:
         optiontags.append(data.tag('option', mimetype))
     select_attrs = {
-        'name_': '{}.mimetype'.format(widget.dottedpath),
+        'name_': f'{widget.dottedpath}.mimetype',
         'id': cssid(widget, 'input.mimetype'),
-        'class': attr_value('mimetypes_class', widget, data)
+        'class': attr_value('mimetypes_class', widget, data),
     }
     mimetypes_data = attr_value('mimetypes_data', widget, data)
     select_attrs.update(as_data_attrs(mimetypes_data))
@@ -38,12 +38,9 @@ def richtext_edit_renderer(widget, data):
 
 factory.register(
     'richtext',
-    extractors=[
-        generic_extractor,
-        generic_required_extractor
-    ],
+    extractors=[generic_extractor, generic_required_extractor],
     edit_renderers=[richtext_edit_renderer],
-    display_renderers=[richtext_display_renderer]
+    display_renderers=[richtext_display_renderer],
 )
 
 factory.doc['blueprint']['richtext'] = """\

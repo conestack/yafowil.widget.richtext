@@ -14,45 +14,53 @@ resources_dir = os.path.join(os.path.dirname(__file__), 'resources')
 # webresource ################################################################
 
 default_resources = wr.ResourceGroup(
-    name='yafowil.widget.richtext',
-    directory=resources_dir,
-    path='yafowil-richtext'
+    name='yafowil.widget.richtext', directory=resources_dir, path='yafowil-richtext'
 )
-default_resources.add(wr.ScriptResource(
-    name='tinymce-js',
-    directory=os.path.join(resources_dir, 'tinymce', 'jscripts', 'tiny_mce'),
-    path='yafowil-richtext/tinymce/jscripts/tiny_mce',
-    resource='tiny_mce.js',
-))
-default_resources.add(wr.ScriptResource(
-    name='tinymce-jquery-js',
-    depends=['jquery-js', 'tinymce-js'],
-    directory=os.path.join(resources_dir, 'tinymce', 'jscripts', 'tiny_mce'),
-    path='yafowil-richtext/tinymce/jscripts/tiny_mce',
-    resource='jquery.tinymce.js',
-))
-default_resources.add(wr.ScriptResource(
-    name='yafowil-richtext-js',
-    depends='tinymce-jquery-js',
-    resource='widget.js',
-    compressed='widget.min.js'
-))
+default_resources.add(
+    wr.ScriptResource(
+        name='tinymce-js',
+        directory=os.path.join(resources_dir, 'tinymce', 'jscripts', 'tiny_mce'),
+        path='yafowil-richtext/tinymce/jscripts/tiny_mce',
+        resource='tiny_mce.js',
+    )
+)
+default_resources.add(
+    wr.ScriptResource(
+        name='tinymce-jquery-js',
+        depends=['jquery-js', 'tinymce-js'],
+        directory=os.path.join(resources_dir, 'tinymce', 'jscripts', 'tiny_mce'),
+        path='yafowil-richtext/tinymce/jscripts/tiny_mce',
+        resource='jquery.tinymce.js',
+    )
+)
+default_resources.add(
+    wr.ScriptResource(
+        name='yafowil-richtext-js',
+        depends='tinymce-jquery-js',
+        resource='widget.js',
+        compressed='widget.min.js',
+    )
+)
 
 # B/C resources ##############################################################
 
-default_js = [{
-    'group': 'yafowil.widget.richtext.dependencies',
-    'resource': 'tinymce/jscripts/tiny_mce/tiny_mce.js',
-    'order': 20,
-}, {
-    'group': 'yafowil.widget.richtext.jquery',
-    'resource': 'tinymce/jscripts/tiny_mce/jquery.tinymce.js',
-    'order': 21,
-}, {
-    'group': 'yafowil.widget.richtext.common',
-    'resource': 'widget.js',
-    'order': 22,
-}]
+default_js = [
+    {
+        'group': 'yafowil.widget.richtext.dependencies',
+        'resource': 'tinymce/jscripts/tiny_mce/tiny_mce.js',
+        'order': 20,
+    },
+    {
+        'group': 'yafowil.widget.richtext.jquery',
+        'resource': 'tinymce/jscripts/tiny_mce/jquery.tinymce.js',
+        'order': 21,
+    },
+    {
+        'group': 'yafowil.widget.richtext.common',
+        'resource': 'widget.js',
+        'order': 22,
+    },
+]
 
 
 ##############################################################################
@@ -62,23 +70,23 @@ default_js = [{
 # webresource ################################################################
 
 plone4_resources = wr.ResourceGroup(
-    name='yafowil.widget.richtext',
-    directory=resources_dir,
-    path='yafowil-richtext'
+    name='yafowil.widget.richtext', directory=resources_dir, path='yafowil-richtext'
 )
-plone4_resources.add(wr.ScriptResource(
-    name='yafowil-richtext-js',
-    resource='widget_p4.js',
-    compressed='widget_p4.min.js'
-))
+plone4_resources.add(
+    wr.ScriptResource(
+        name='yafowil-richtext-js', resource='widget_p4.js', compressed='widget_p4.min.js'
+    )
+)
 
 # B/C resources ##############################################################
 
-js_plone4 = [{
-    'group': 'yafowil.widget.richtext.common',
-    'resource': 'widget_p4.js',
-    'order': 20,
-}]
+js_plone4 = [
+    {
+        'group': 'yafowil.widget.richtext.common',
+        'resource': 'widget_p4.js',
+        'order': 20,
+    }
+]
 
 
 ##############################################################################
@@ -88,28 +96,29 @@ js_plone4 = [{
 # webresource ################################################################
 
 plone5_resources = wr.ResourceGroup(
-    name='yafowil.widget.richtext',
-    directory=resources_dir,
-    path='yafowil-richtext'
+    name='yafowil.widget.richtext', directory=resources_dir, path='yafowil-richtext'
 )
-plone5_resources.add(wr.ScriptResource(
-    name='yafowil-richtext-js',
-    resource='widget_p5.js',
-    compressed='widget_p5.min.js'
-))
+plone5_resources.add(
+    wr.ScriptResource(
+        name='yafowil-richtext-js', resource='widget_p5.js', compressed='widget_p5.min.js'
+    )
+)
 
 # B/C resources ##############################################################
 
-js_plone5 = [{
-    'group': 'yafowil.widget.richtext.common',
-    'resource': 'widget_p5.js',
-    'order': 20,
-}]
+js_plone5 = [
+    {
+        'group': 'yafowil.widget.richtext.common',
+        'resource': 'widget_p5.js',
+        'order': 20,
+    }
+]
 
 
 ##############################################################################
 # Registration
 ##############################################################################
+
 
 @entry_point(order=10)
 def register():

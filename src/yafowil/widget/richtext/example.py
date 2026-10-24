@@ -37,15 +37,17 @@ DOC_RICHTEXT_DEPRECATION = """
 
 
 def richtext():
-    part = factory(u'fieldset', name='yafowilwidgetrichtext')
-    part['richtext'] = factory('#field:richtext', props={
-        'label': 'Richtext field',
-        'required': 'Text is required'})
+    part = factory('fieldset', name='yafowilwidgetrichtext')
+    part['richtext'] = factory(
+        '#field:richtext',
+        props={'label': 'Richtext field', 'required': 'Text is required'},
+    )
     return {
         'widget': part,
-        'doc': DOC_RICHTEXT if factory.theme != 'bootstrap5'
-               else DOC_RICHTEXT_DEPRECATION + DOC_RICHTEXT,
-        'title': 'Richtext'
+        'doc': DOC_RICHTEXT
+        if factory.theme != 'bootstrap5'
+        else DOC_RICHTEXT_DEPRECATION + DOC_RICHTEXT,
+        'title': 'Richtext',
     }
 
 
