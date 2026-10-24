@@ -51,8 +51,11 @@ QUnit.module('RichtextWidget Plone 5', (hooks) => {
         assert.strictEqual(url, '@@yafowil.tinymce.options');
         assert.strictEqual(settings.dataType, 'json');
 
+        assert.strictEqual(created.length, 0);
+
         const options = { plugins: 'table' };
         settings.success(options);
+        assert.strictEqual(created.length, 1);
         assert.true(last_created()[0].is(el));
         assert.strictEqual(last_created()[1], options);
         assert.deepEqual(logged, []);
@@ -62,8 +65,10 @@ QUnit.module('RichtextWidget Plone 5', (hooks) => {
         RichtextWidget.initialize();
         assert.true(el.data('yafowil-richtext') instanceof RichtextWidget);
         assert.strictEqual(ajax_calls.length, 1);
+        assert.strictEqual(created.length, 0);
 
         ajax_calls[0][1].error();
+        assert.strictEqual(created.length, 1);
         assert.true(last_created()[0].is(el));
         assert.deepEqual(last_created()[1], {});
         assert.deepEqual(logged, [

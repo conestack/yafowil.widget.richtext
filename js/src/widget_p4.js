@@ -11,8 +11,8 @@ export class RichtextWidget {
         elem.data('yafowil-richtext', this);
         this.elem = elem;
         this.id = this.elem.attr('id');
-        this.config = new TinyMCEConfig(id);
-        delete InitializedTinyMCEInstances[id];
+        this.config = new TinyMCEConfig(this.id);
+        delete InitializedTinyMCEInstances[this.id];
         this.config.init();
     }
 }

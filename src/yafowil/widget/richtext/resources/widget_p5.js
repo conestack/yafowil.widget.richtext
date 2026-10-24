@@ -23,7 +23,6 @@ var yafowil_richtext = (function (exports, $) {
                         new tinymce(elem, {});
                     },
                 });
-                new tinymce(elem, {});
             });
         }
     }

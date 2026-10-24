@@ -23,7 +23,6 @@ export class RichtextWidget {
                     new tinymce(elem, {});
                 },
             });
-            new tinymce(elem, {});
         });
     }
 }

@@ -4,8 +4,18 @@ Changes
 2.0.1 (unreleased)
 ------------------
 
-- Extend the JS tests, all modules are loaded by the tests now. Code paths
-  behind known bugs stay uncovered.
+- Fix the Plone 4 richtext widget throwing a ``ReferenceError`` for every
+  ``textarea.richtext``. The textarea id was referenced as undeclared ``id``
+  instead of ``this.id``.
+  [rnix]
+
+- Fix the Plone 5 richtext widget creating the TinyMCE pattern twice per
+  textarea. It is created once now, after the TinyMCE options request
+  succeeded or failed.
+  [rnix]
+
+- Extend the JS tests to 100 % coverage, all modules including bundles are
+  loaded by the tests now.
   [rnix]
 
 - Lint and format the JS code with biome. ``make check`` runs ``biome check``,
