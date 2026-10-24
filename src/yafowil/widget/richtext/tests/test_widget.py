@@ -3,7 +3,6 @@ from yafowil.base import ExtractionError
 from yafowil.base import factory
 from yafowil.tests import YafowilTestCase
 import os
-import unittest
 
 
 def np(path):
@@ -43,6 +42,39 @@ class TestRichtextWidget(YafowilTestCase):
         self.assertEqual(widget(), (
             '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
             'required="required" rows="25"><p>1</p></textarea>'
+        ))
+
+    def test_edit_renderer_requires_html_mimetype(self):
+        widget = factory(
+            'richtext',
+            name='rt',
+            props={
+                'mimetypes': ['text/plain']
+            })
+        with self.assertRaises(Exception) as arc:
+            widget()
+        self.assertEqual(
+            str(arc.exception),
+            '"text/html" not contained in mimetypes'
+        )
+
+    def test_edit_renderer_mimetypes(self):
+        widget = factory(
+            'richtext',
+            name='rt',
+            props={
+                'mimetypes': ['text/html', 'text/plain'],
+                'mimetypes_class': 'mimetypes',
+                'mimetypes_data': {'foo': 'bar'}
+            })
+        self.assertEqual(widget(), (
+            '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
+            'rows="25"></textarea>'
+            '<select class="mimetypes" data-foo=\'bar\' '
+            'id="input.mimetype-rt" name="rt.mimetype">'
+            '<option>text/html</option>'
+            '<option>text/plain</option>'
+            '</select>'
         ))
 
     def test_display_renderer(self):
@@ -155,7 +187,3 @@ class TestRichtextWidget(YafowilTestCase):
         self.assertEqual(scripts[0].path, 'yafowil-richtext')
         self.assertEqual(scripts[0].file_name, 'widget_p5.min.js')
         self.assertTrue(os.path.exists(scripts[0].file_path))
-
-
-if __name__ == '__main__':
-    unittest.main()
