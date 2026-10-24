@@ -1,9 +1,8 @@
 import $ from 'jquery';
 
 export class RichtextWidget {
-
     static initialize(context) {
-        $('textarea.richtext', context).each(function() {
+        $('textarea.richtext', context).each(function () {
             new RichtextWidget($(this));
         });
     }

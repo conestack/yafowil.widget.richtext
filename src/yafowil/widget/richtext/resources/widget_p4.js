@@ -3,7 +3,7 @@ var yafowil_richtext = (function (exports, $) {
 
     class RichtextWidget {
         static initialize(context) {
-            $('textarea.richtext', context).each(function() {
+            $('textarea.richtext', context).each(function () {
                 new RichtextWidget($(this));
             });
         }
@@ -17,7 +17,7 @@ var yafowil_richtext = (function (exports, $) {
         }
     }
 
-    $(function() {
+    $(() => {
         if (window.ts !== undefined) {
             ts.ajax.register(RichtextWidget.initialize, true);
         } else if (window.bdajax !== undefined) {

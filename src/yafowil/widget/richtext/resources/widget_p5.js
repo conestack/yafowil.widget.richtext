@@ -3,33 +3,32 @@ var yafowil_richtext = (function (exports, $) {
 
     class RichtextWidget {
         static initialize(context) {
-            $('textarea.richtext', context).each(function() {
+            $('textarea.richtext', context).each(function () {
                 new RichtextWidget($(this));
             });
         }
         constructor(elem) {
             elem.data('yafowil-richtext', this);
             this.elem = elem;
-            mockup_require(['mockup-patterns-tinymce'], function(tinymce) {
+            mockup_require(['mockup-patterns-tinymce'], (tinymce) => {
                 $.ajax('@@yafowil.tinymce.options', {
                     dataType: 'json',
-                    success: function(data, status, request) {
+                    success: (data) => {
                         new tinymce(elem, data);
                     },
-                    error: function(request, status, error) {
+                    error: () => {
                         console.log(
-                            'Failed to fetch TinyMCE Options. ' +
-                            'Initialize with default options'
+                            'Failed to fetch TinyMCE Options. ' + 'Initialize with default options',
                         );
                         new tinymce(elem, {});
-                    }
+                    },
                 });
                 new tinymce(elem, {});
             });
         }
     }
 
-    $(function() {
+    $(() => {
         if (window.ts !== undefined) {
             ts.ajax.register(RichtextWidget.initialize, true);
         } else if (window.bdajax !== undefined) {

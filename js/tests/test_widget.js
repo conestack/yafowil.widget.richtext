@@ -1,19 +1,18 @@
-import { RichtextWidget } from "../src/widget";
 import $ from 'jquery';
+import { RichtextWidget } from '../src/widget';
 
-QUnit.test('test', assert => {
-    let el = $('<textarea class="richtext" />').appendTo('body');
+QUnit.test('test', (assert) => {
+    const el = $('<textarea class="richtext" />').appendTo('body');
 
     // mock tinymce - legacy code
     $.fn.extend({
-        tinymce: function() {
-            return this.each(function() {
-            });
-        }
+        tinymce: function () {
+            return this.each(() => {});
+        },
     });
 
     RichtextWidget.initialize();
-    let wid = el.data('yafowil-richtext');
+    const wid = el.data('yafowil-richtext');
     assert.ok(wid);
 
     // remove tinymce from jQuery namespace
