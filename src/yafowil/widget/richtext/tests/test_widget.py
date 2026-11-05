@@ -37,7 +37,7 @@ class TestRichtextWidget(YafowilTestCase):
             widget(),
             (
                 '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
-                'required="required" rows="25"><p>1</p></textarea>'
+                'required="required" rows="25">&lt;p&gt;1&lt;/p&gt;</textarea>'
             ),
         )
 
@@ -99,7 +99,7 @@ class TestRichtextWidget(YafowilTestCase):
             widget(data),
             (
                 '<textarea class="richtext" cols="80" id="input-rt" name="rt" '
-                'required="required" rows="25"><p>1</p></textarea>'
+                'required="required" rows="25">&lt;p&gt;1&lt;/p&gt;</textarea>'
             ),
         )
 
