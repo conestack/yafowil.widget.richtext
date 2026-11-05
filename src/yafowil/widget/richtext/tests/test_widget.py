@@ -73,7 +73,9 @@ class TestRichtextWidget(YafowilTestCase):
     def test_display_renderer(self):
         # Display renderer
         widget = factory('richtext', name='rt', value='<p>foo</p>', mode='display')
-        self.assertEqual(widget(), '<div class="display-richtext"><p>foo</p></div>')
+        self.assertEqual(
+            widget(), '<div class="display-richtext">&lt;p&gt;foo&lt;/p&gt;</div>'
+        )
 
         widget = factory('richtext', name='rt', mode='display')
         self.assertEqual(widget(), '<div class="display-richtext"></div>')

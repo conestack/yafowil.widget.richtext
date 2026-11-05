@@ -12,7 +12,7 @@ def richtext_display_renderer(widget, data):
     value = fetch_value(widget, data)
     if not value:
         value = ''
-    return data.tag('div', value, **{'class': 'display-richtext'})
+    return data.tag('div', data.tag.escape(value), **{'class': 'display-richtext'})
 
 
 def richtext_edit_renderer(widget, data):

@@ -14,6 +14,12 @@
     :target: https://github.com/conestack/yafowil.widget.richtext/actions/workflows/test_js.yaml
     :alt: Test yafowil.widget.richtext JS
 
+.. warning::
+
+    This package is deprecated, use
+    `yafowil.widget.tiptap <http://pypi.python.org/pypi/yafowil.widget.tiptap>`_
+    instead. In display mode the value gets encoded, markup shows up as text.
+
 This is a **richtext widget** for for `YAFOWIL
 <http://pypi.python.org/pypi/yafowil>`_
 

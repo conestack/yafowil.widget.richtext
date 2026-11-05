@@ -4,7 +4,12 @@ Changes
 2.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- This package is deprecated, use ``yafowil.widget.tiptap`` instead.
+  [rnix]
+
+- Encode the value in display mode, markup shows up as text now. Requires
+  ``yafowil`` 4.2.0.
+  [rnix]
 
 
 2.0.1 (2026-10-31)
